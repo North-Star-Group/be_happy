@@ -6,6 +6,9 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { Scissors, Tag, Shirt, Star } from 'lucide-react';
 import Categories from '@/components/Category';
+import DesignerHero from '@/components/Hero';
+import AnnouncementBanner from '@/components/Banner';
+import VisitUs from '@/components/VisitUs';
 // --- UI COMPONENTS ---
 
 interface SectionProps {
@@ -37,8 +40,6 @@ const Button = ({ children, primary = true }: ButtonProps) => (
   </motion.button>
 );
 
-// --- SECTIONS ---
-
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -50,7 +51,7 @@ const Navbar = () => {
   }, []);
 
   return (
-    <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${scrolled ? 'bg-white/90 backdrop-blur-md py-4 shadow-sm' : 'bg-transparent py-6'}`}>
+    <nav className={`fixed top-4 w-full z-50 transition-all duration-300 ${scrolled ? 'bg-white/90 backdrop-blur-md py-4 shadow-sm' : 'bg-transparent py-4'}`}>
       <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
         {/* Logo Representation */}
         <Link
@@ -125,7 +126,9 @@ const Hero = () => {
             Mind.
           </h1>
           <p className="text-stone-600 mb-8 max-w-md leading-relaxed">
-            Discover the new style for MAN & WOMAN. Elegance meets happiness in our latest curated selection.
+            We're pleased to introduce our clothing store, "Be Happy," located in Losone. We offer a wide selection of women's clothing at affordable prices, to help everyone feel beautiful and comfortable every day.
+
+            In our store, you'll find a wide range of casual/sportswear to suit everyone's tastes. We're always looking for the finest fabrics and most innovative designs to ensure our customers have an exceptional shopping experience.
           </p>
           <div className="flex gap-4">
             <Button primary={true}>Shop WOMAN</Button>
@@ -170,8 +173,6 @@ const Hero = () => {
   );
 };
 
-
-
 const AboutStrip = () => {
   const content = [
     { text: "New Season", icon: <Star size={14} /> },
@@ -187,13 +188,13 @@ const AboutStrip = () => {
       {/* Texture overlay to make it look like fabric (optional) */}
       <div className="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/fabric-of-squares.png')] pointer-events-none"></div>
 
-      <motion.div 
+      <motion.div
         className="flex gap-12 whitespace-nowrap"
         animate={{ x: "-50%" }}
-        transition={{ 
-          repeat: Infinity, 
-          duration: 20, 
-          ease: "linear" 
+        transition={{
+          repeat: Infinity,
+          duration: 20,
+          ease: "linear"
         }}
         style={{ width: "max-content" }} // Ensures the width fits the content
       >
@@ -202,12 +203,12 @@ const AboutStrip = () => {
           <div key={index} className="flex items-center gap-3 text-white/90">
             {/* The Icon */}
             <span className="text-red-200">{item.icon}</span>
-            
+
             {/* The Text */}
             <span className="font-sans text-xs md:text-sm font-bold tracking-[0.2em] uppercase">
               {item.text}
             </span>
-            
+
             {/* The Separator */}
             <span className="w-1 h-1 bg-red-800 rounded-full ml-8"></span>
           </div>
@@ -280,11 +281,14 @@ const Footer = () => {
 const App = () => {
   return (
     <main className="font-sans antialiased text-stone-900 selection:bg-red-100 selection:text-red-900">
+
       <Navbar />
-      <Hero />
+      <AnnouncementBanner />
+      <DesignerHero />
       <AboutStrip />
       <Categories />
-      <Section className="bg-stone-50 text-center">
+      <VisitUs />
+      <Section className="bg-stone-50 border border-red-500 text-center">
         <h2 className="font-serif text-4xl mb-6">Join the Club</h2>
         <p className="text-stone-600 mb-8">Follow us on social media for the latest trends and updates.</p>
         <div className="flex justify-center gap-4">

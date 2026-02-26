@@ -54,7 +54,7 @@ const CategoryCard = ({ title, image, links, badge }: CategoryCardProps) => {
       {badge && (
         <div className="absolute top-6 right-6 z-20 bg-red-600 text-white w-20 h-20 rounded-full flex flex-col items-center justify-center shadow-lg transform rotate-12 group-hover:rotate-0 transition-transform duration-500">
           <Star size={14} fill="white" className="mb-1" />
-          <span className="text-[10px] font-bold uppercase tracking-widest text-center leading-tight">
+          <span className="text-[8px] font-bold uppercase tracking-widest text-center leading-tight">
             {badge}
           </span>
         </div>
@@ -148,7 +148,8 @@ const Categories = () => {
         <div className="flex-1">
           <CategoryCard
             title="MAN"
-            image="https://images.unsplash.com/photo-1516257984-b1b4d8c9230c?q=80&w=1000&auto=format&fit=crop"
+            image="/men_bg.png"
+            badge="New Season"
             links={["New Arrivals", "Suits & Blazers", "Casual Wear"]}
           />
         </div>
