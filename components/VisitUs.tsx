@@ -34,9 +34,9 @@ const VisitUs = () => {
                         <span className="text-xs font-semibold tracking-widest uppercase">Come Say Hi</span>
                     </div>
 
-                    <h2 className="font-serif text-5xl md:text-6xl text-stone-900 mb-6 leading-tight">
+                    <h2 className="font- text-5xl md:text-6xl text-stone-900 mb-6 leading-tight">
                         Visit Our <br />
-                        <span className="italic text-stone-400 font-light">Boutique</span>
+                        <span className=" text-stone-400 font-light">Boutique</span>
                     </h2>
 
                     <p className="text-stone-600 mb-10 text-lg leading-relaxed font-light">
@@ -72,7 +72,7 @@ const VisitUs = () => {
                     </div>
 
                     <motion.a
-                        href="https://maps.google.com/?q=Via+Emmaus+10,+Losone,+Switzerland"
+                        href="https://www.facebook.com/p/Be-Happy-100068963659334/"
                         target="_blank"
                         rel="noopener noreferrer"
                         whileHover={{ scale: 1.05 }}
@@ -93,7 +93,7 @@ const VisitUs = () => {
                     >
                         <div className="absolute inset-0 bg-stone-900/10 z-10 transition-opacity hover:opacity-0 duration-500" />
                         <img
-                            src="https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?q=80&w=1000&auto=format&fit=crop"
+                            src="/site_1.png"
                             alt="Store Interior"
                             className="w-full h-full object-cover hover:scale-110 transition-transform duration-1000"
                         />
@@ -106,7 +106,7 @@ const VisitUs = () => {
                     >
                         <div className="absolute inset-0 bg-stone-900/10 z-10 transition-opacity hover:opacity-0 duration-500" />
                         <img
-                            src="https://images.unsplash.com/photo-1567401893414-76b7b1e5a7a5?q=80&w=1000&auto=format&fit=crop"
+                            src="/site_2.png"
                             alt="Clothing Detail"
                             className="w-full h-full object-cover hover:scale-110 transition-transform duration-1000"
                         />
@@ -122,9 +122,9 @@ const VisitUs = () => {
                         className="absolute top-10 left-10 w-40 h-40 rounded-full overflow-hidden shadow-xl z-10 border-8 border-stone-50"
                     >
                         <img
-                            src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=600&auto=format&fit=crop"
+                            src="/be_happy_1.png"
                             alt="Store Details"
-                            className="w-full h-full object-cover hover:scale-110 transition-transform duration-700"
+                            className="w-full h-full object-cover hover:scale-80 transition-transform duration-700"
                         />
                     </motion.div>
 

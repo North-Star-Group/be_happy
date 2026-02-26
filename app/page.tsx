@@ -31,6 +31,7 @@ const Button = ({ children, primary = true }: ButtonProps) => (
   <motion.button
     whileHover={{ scale: 1.05 }}
     whileTap={{ scale: 0.95 }}
+    onClick={() => window.open('https://www.facebook.com/p/Be-Happy-100068963659334/', '_blank')}
     className={`px-8 py-3 rounded-full text-sm tracking-widest uppercase font-medium transition-colors ${primary
       ? 'bg-red-600 text-white hover:bg-red-700'
       : 'border border-stone-800 text-stone-800 hover:bg-stone-800 hover:text-white'
@@ -55,7 +56,9 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
         {/* Logo Representation */}
         <Link
-          href="/"
+          href="https://www.facebook.com/p/Be-Happy-100068963659334/"
+          target="_blank"
+          rel="noopener noreferrer"
           className="flex items-center"
         >
           <Image
@@ -70,15 +73,15 @@ const Navbar = () => {
 
         {/* Desktop Nav */}
         <div className="hidden md:flex items-center gap-8 font-medium text-sm tracking-wide">
-          <a href="#women" className="hover:text-red-600 transition-colors">WOMAN</a>
-          <a href="#men" className="hover:text-red-600 transition-colors">MAN</a>
-          <a href="#about" className="hover:text-red-600 transition-colors">STORY</a>
+          <a href="https://www.facebook.com/p/Be-Happy-100068963659334/" target="_blank" rel="noopener noreferrer" className="hover:text-red-600 transition-colors">WOMAN</a>
+          <a href="https://www.facebook.com/p/Be-Happy-100068963659334/" target="_blank" rel="noopener noreferrer" className="hover:text-red-600 transition-colors">MAN</a>
+          <a href="https://www.facebook.com/p/Be-Happy-100068963659334/" target="_blank" rel="noopener noreferrer" className="hover:text-red-600 transition-colors">STORY</a>
         </div>
 
         {/* Socials & CTA */}
         <div className="hidden md:flex items-center gap-4">
-          <a href="https://instagram.com" target="_blank" rel="noreferrer" className="hover:text-red-600 transition-colors"><Instagram size={20} /></a>
-          <a href="https://facebook.com" target="_blank" rel="noreferrer" className="hover:text-red-600 transition-colors"><Facebook size={20} /></a>
+          <a href="https://www.facebook.com/p/Be-Happy-100068963659334/" target="_blank" rel="noreferrer" className="hover:text-red-600 transition-colors"><Instagram size={20} /></a>
+          <a href="https://www.facebook.com/p/Be-Happy-100068963659334/" target="_blank" rel="noreferrer" className="hover:text-red-600 transition-colors"><Facebook size={20} /></a>
           <Button primary={true}>SHOP NOW</Button>
         </div>
 
@@ -95,8 +98,8 @@ const Navbar = () => {
           animate={{ opacity: 1, y: 0 }}
           className="absolute top-full left-0 w-full bg-white shadow-lg py-8 flex flex-col items-center gap-6 md:hidden"
         >
-          <a href="#women" onClick={() => setMobileMenuOpen(false)} className="text-lg">WOMAN</a>
-          <a href="#men" onClick={() => setMobileMenuOpen(false)} className="text-lg">MAN</a>
+          <a href="https://www.facebook.com/p/Be-Happy-100068963659334/" target="_blank" rel="noopener noreferrer" onClick={() => setMobileMenuOpen(false)} className="text-lg">WOMAN</a>
+          <a href="https://www.facebook.com/p/Be-Happy-100068963659334/" target="_blank" rel="noopener noreferrer" onClick={() => setMobileMenuOpen(false)} className="text-lg">MAN</a>
           <div className="flex gap-4 mt-4">
             <Instagram className="text-red-600" />
             <Facebook className="text-red-600" />
@@ -120,9 +123,9 @@ const Hero = () => {
           className="z-10"
         >
           <span className="text-red-600 font-medium tracking-widest text-sm uppercase mb-4 block">New Collection 2026</span>
-          <h1 className="font-serif text-5xl md:text-7xl leading-[1.1] text-stone-900 mb-6">
-            Fashion <br />
-            <span className="italic font-light">State of</span> <br />
+          <h1 className="font- text-5xl md:text-7xl leading-[1.1] text-stone-900 mb-6">
+            Hi <br />
+            <span className=" font-light">State of</span> <br />
             Mind.
           </h1>
           <p className="text-stone-600 mb-8 max-w-md leading-relaxed">
@@ -225,16 +228,16 @@ const Footer = () => {
 
         {/* Brand */}
         <div>
-          <h3 className="font-serif text-3xl text-white mb-6">Be <span className="text-red-500">Happy</span></h3>
+          <h3 className="font- text-3xl text-white mb-6">Be <span className="text-red-500">Happy</span></h3>
           <p className="mb-6 font-light leading-relaxed">
             More than just clothing. It's an attitude. <br />
             Find your smile in our latest collection.
           </p>
           <div className="flex gap-4">
-            <a href="#" className="w-10 h-10 rounded-full border border-stone-700 flex items-center justify-center hover:bg-red-600 hover:border-red-600 hover:text-white transition-all">
+            <a href="https://www.facebook.com/p/Be-Happy-100068963659334/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full border border-stone-700 flex items-center justify-center hover:bg-red-600 hover:border-red-600 hover:text-white transition-all">
               <Instagram size={18} />
             </a>
-            <a href="#" className="w-10 h-10 rounded-full border border-stone-700 flex items-center justify-center hover:bg-red-600 hover:border-red-600 hover:text-white transition-all">
+            <a href="https://www.facebook.com/p/Be-Happy-100068963659334/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full border border-stone-700 flex items-center justify-center hover:bg-red-600 hover:border-red-600 hover:text-white transition-all">
               <Facebook size={18} />
             </a>
           </div>
@@ -244,10 +247,10 @@ const Footer = () => {
         <div>
           <h4 className="text-white uppercase tracking-widest text-sm mb-6">Collections</h4>
           <ul className="space-y-3">
-            <li><a href="#" className="hover:text-red-500 transition-colors">Women's New Arrivals</a></li>
-            <li><a href="#" className="hover:text-red-500 transition-colors">Men's Casual</a></li>
-            <li><a href="#" className="hover:text-red-500 transition-colors">Accessories</a></li>
-            <li><a href="#" className="hover:text-red-500 transition-colors">Lookbook 2026</a></li>
+            <li><a href="https://www.facebook.com/p/Be-Happy-100068963659334/" target="_blank" rel="noopener noreferrer" className="hover:text-red-500 transition-colors">Women's New Arrivals</a></li>
+            <li><a href="https://www.facebook.com/p/Be-Happy-100068963659334/" target="_blank" rel="noopener noreferrer" className="hover:text-red-500 transition-colors">Men's Casual</a></li>
+            <li><a href="https://www.facebook.com/p/Be-Happy-100068963659334/" target="_blank" rel="noopener noreferrer" className="hover:text-red-500 transition-colors">Accessories</a></li>
+            <li><a href="https://www.facebook.com/p/Be-Happy-100068963659334/" target="_blank" rel="noopener noreferrer" className="hover:text-red-500 transition-colors">Lookbook 2026</a></li>
           </ul>
         </div>
 
@@ -288,8 +291,8 @@ const App = () => {
       <AboutStrip />
       <Categories />
       <VisitUs />
-      <Section className="bg-stone-50 border border-red-500 text-center">
-        <h2 className="font-serif text-4xl mb-6">Join the Club</h2>
+      <Section className="bg-stone-50  text-center">
+        <h2 className="font- text-4xl mb-6">Join the Club</h2>
         <p className="text-stone-600 mb-8">Follow us on social media for the latest trends and updates.</p>
         <div className="flex justify-center gap-4">
           <Button primary={false}>@behappyswiss</Button>

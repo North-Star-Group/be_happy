@@ -74,7 +74,7 @@ const CategoryCard = ({ title, image, links, badge }: CategoryCardProps) => {
           <span className="text-red-500 font-bold tracking-widest text-xs uppercase mb-2 block">
             Collection 2026
           </span>
-          <h2 className="text-5xl md:text-7xl font-serif text-white mb-2">
+          <h2 className="text-5xl md:text-7xl font- text-white mb-2">
             {title}
           </h2>
         </motion.div>
@@ -92,7 +92,9 @@ const CategoryCard = ({ title, image, links, badge }: CategoryCardProps) => {
             {links.map((link, i) => (
               <a
                 key={i}
-                href="#"
+                href="https://www.facebook.com/p/Be-Happy-100068963659334/"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="flex items-center justify-between text-stone-200 hover:text-white group/link"
               >
                 <span className="text-lg font-medium">{link}</span>
@@ -102,7 +104,13 @@ const CategoryCard = ({ title, image, links, badge }: CategoryCardProps) => {
 
             {/* Main CTA */}
             <div className="mt-4 pt-4">
-              <button className="bg-white text-stone-900 px-6 py-3 rounded-full text-sm font-bold uppercase tracking-wider flex items-center gap-2 hover:bg-red-600 hover:text-white transition-colors w-max">
+              <button
+                onClick={(e) => {
+                  e.stopPropagation();
+                  window.open('https://www.facebook.com/p/Be-Happy-100068963659334/', '_blank');
+                }}
+                className="bg-white text-stone-900 px-6 py-3 rounded-full text-sm font-bold uppercase tracking-wider flex items-center gap-2 hover:bg-red-600 hover:text-white transition-colors w-max"
+              >
                 Shop All {title} <ArrowRight size={16} />
               </button>
             </div>
@@ -119,14 +127,19 @@ const Categories = () => {
       {/* Header for the section */}
       <div className="mb-12 flex justify-between items-end px-4">
         <div>
-          <h3 className="font-serif text-3xl md:text-4xl text-stone-900">
+          <h3 className="font- text-3xl md:text-4xl text-stone-900">
             Shop by Category
           </h3>
           <p className="text-stone-500 mt-2 max-w-md">
             Explore our latest arrivals tailored for every occasion.
           </p>
         </div>
-        <a href="#" className="hidden md:flex items-center gap-2 text-sm font-bold uppercase tracking-widest border-b border-stone-900 pb-1 hover:text-red-600 hover:border-red-600 transition-colors">
+        <a
+          href="https://www.facebook.com/p/Be-Happy-100068963659334/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="hidden md:flex items-center gap-2 text-sm font-bold uppercase tracking-widest border-b border-stone-900 pb-1 hover:text-red-600 hover:border-red-600 transition-colors"
+        >
           View All <ArrowRight size={14} />
         </a>
       </div>

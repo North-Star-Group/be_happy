@@ -25,9 +25,10 @@ const AnimatedButton = ({ children, primary }: { children: React.ReactNode, prim
   <motion.button
     whileHover={{ scale: 1.02 }}
     whileTap={{ scale: 0.98 }}
+    onClick={() => window.open('https://www.facebook.com/p/Be-Happy-100068963659334/', '_blank')}
     className={`group relative overflow-hidden px-8 py-4 flex items-center justify-center gap-3 transition-all duration-300 rounded-full font-medium tracking-wide text-sm ${primary
-        ? 'bg-stone-900 text-stone-50 shadow-xl shadow-stone-900/20 hover:shadow-stone-900/30'
-        : 'bg-white text-stone-900 border border-stone-200 hover:border-stone-400 hover:bg-stone-50'
+      ? 'bg-stone-900 text-stone-50 shadow-xl shadow-stone-900/20 hover:shadow-stone-900/30'
+      : 'bg-white text-stone-900 border border-stone-200 hover:border-stone-400 hover:bg-stone-50'
       }`}
   >
     <span className="relative z-10">{children}</span>
@@ -73,7 +74,7 @@ const DesignerHeroCollection = () => {
       <div className="absolute bottom-0 right-1/4 w-[600px] h-[600px] bg-orange-50/60 rounded-full blur-[150px] mix-blend-multiply opacity-60 pointer-events-none" />
 
       <div className="absolute inset-0 flex items-center justify-center opacity-[0.03] select-none pointer-events-none overflow-hidden z-0">
-        <h1 className="text-[25vw] font-serif font-black text-stone-900 whitespace-nowrap leading-none tracking-tighter mix-blend-overlay">
+        <h1 className="text-[25vw] font- font-black text-stone-900 whitespace-nowrap leading-none tracking-tighter mix-blend-overlay">
           BE HAPPY
         </h1>
       </div>
@@ -95,10 +96,10 @@ const DesignerHeroCollection = () => {
                 </span>
               </div>
 
-              <h1 className="font-serif text-5xl sm:text-7xl lg:text-[5.5rem] leading-[1.05] text-stone-900 mb-6 tracking-tight">
-                Fashion <br />
-                <span className="italic font-light text-stone-500 pr-4">State of</span>
-                Mind.
+              <h1 className="font- text-5xl md:text-7xl leading-[1.1] text-stone-900 mb-6">
+                Style <br />
+                <span className=" font-light">Beyond</span> <br />
+                Borders.
               </h1>
             </motion.div>
 
@@ -120,7 +121,7 @@ const DesignerHeroCollection = () => {
               className="flex flex-wrap items-center gap-4"
             >
               <AnimatedButton primary>Shop Collection</AnimatedButton>
-          
+
             </motion.div>
 
             {/* Social Proof / Stats */}
@@ -131,26 +132,26 @@ const DesignerHeroCollection = () => {
               className="mt-16 pt-8 border-t border-stone-200 flex items-center gap-8"
             >
               <div>
-                <p className="text-3xl font-serif text-stone-900">10k+</p>
+                <p className="text-3xl font- text-stone-900">10k+</p>
                 <p className="text-xs text-stone-500 uppercase tracking-wider mt-1">Happy Clients</p>
               </div>
               <div className="w-px h-10 bg-stone-200" />
               <div>
-                <p className="text-3xl font-serif text-stone-900">Premium</p>
+                <p className="text-3xl font- text-stone-900">Premium</p>
                 <p className="text-xs text-stone-500 uppercase tracking-wider mt-1">Quality Materials</p>
               </div>
             </motion.div>
           </div>
 
           {/* RIGHT VISUALS - Bento Style Layout */}
-          <div className="lg:col-span-6 relative mt-12 lg:mt-0 flex justify-center lg:justify-end min-h-[550px] sm:min-h-[650px]">
+          <div className="lg:col-span-6 relative mt-12 lg:mt-0 flex justify-center lg:justify-end min-h-[520px] sm:min-h-[620px]">
 
-            {/* Center Main Large Image */}
+            {/* Main Image */}
             <motion.div
-              initial={{ clipPath: 'inset(100% 0 0 0)' }}
-              animate={{ clipPath: 'inset(0 0 0 0)' }}
+              initial={{ clipPath: "inset(100% 0 0 0)" }}
+              animate={{ clipPath: "inset(0 0 0 0)" }}
               transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
-              className="absolute top-0 right-[4%] sm:right-[15%] lg:right-[10%] w-[260px] sm:w-[340px] h-[360px] sm:h-[480px] rounded-2xl overflow-hidden shadow-2xl z-20"
+              className="absolute top-[10%] right-[8%] sm:right-[18%] lg:right-[12%] w-[260px] sm:w-[330px] h-[360px] sm:h-[470px] rounded-2xl overflow-hidden shadow-2xl z-20"
             >
               <ImageSlideshow
                 images={mainCollectionImages}
@@ -163,12 +164,12 @@ const DesignerHeroCollection = () => {
               </div>
             </motion.div>
 
-            {/* Top Left Floating Image */}
+            {/* Top Left Image */}
             <motion.div
-              initial={{ opacity: 0, x: -30, y: 20 }}
+              initial={{ opacity: 0, x: -20, y: 10 }}
               animate={{ opacity: 1, x: 0, y: 0 }}
-              transition={{ delay: 0.6, duration: 0.8, ease: "easeOut" }}
-              className="absolute top-[8%] sm:top-[5%] left-[0%] sm:left-[10%] lg:-left-4 w-[140px] sm:w-[180px] h-[180px] sm:h-[220px] rounded-2xl overflow-hidden shadow-lg z-30 ring-4 ring-white"
+              transition={{ delay: 0.5, duration: 0.8, ease: "easeOut" }}
+              className="absolute top-[2%] sm:top-[6%] left-[12%] sm:left-[18%] w-[140px] sm:w-[170px] h-[180px] sm:h-[210px] rounded-2xl overflow-hidden shadow-lg z-30 ring-4 ring-white"
             >
               <ImageSlideshow
                 images={floatingImages}
@@ -177,12 +178,12 @@ const DesignerHeroCollection = () => {
               />
             </motion.div>
 
-            {/* Bottom Right Floating Image */}
+            {/* Bottom Right Image */}
             <motion.div
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.8, duration: 0.8, ease: "easeOut" }}
-              className="absolute bottom-[2%] sm:bottom-[5%] right-[0%] lg:-right-4 w-[160px] sm:w-[220px] h-[200px] sm:h-[260px] rounded-2xl overflow-hidden shadow-xl z-30 ring-4 ring-white"
+              transition={{ delay: 0.7, duration: 0.8, ease: "easeOut" }}
+              className="absolute bottom-[-2%] right-[-18%] sm:right-[-12%] lg:right-[-6%] w-[160px] sm:w-[210px] h-[200px] sm:h-[250px] rounded-2xl overflow-hidden shadow-xl z-30 ring-4 ring-white"
             >
               <ImageSlideshow
                 images={secondaryImages}
@@ -191,13 +192,13 @@ const DesignerHeroCollection = () => {
               />
             </motion.div>
 
-            {/* Floating Decorative Circle */}
+            {/* Decorative Circle */}
             <motion.div
               animate={{ rotate: 360 }}
               transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-              className="absolute top-[-5%] right-[-5%] sm:top-[20%] sm:-right-8 w-24 h-24 sm:w-32 sm:h-32 rounded-full border border-stone-300 border-dashed z-10 flex items-center justify-center opacity-50"
+              className="absolute top-[18%] right-[0%] sm:right-[6%] w-24 h-24 sm:w-28 sm:h-28 rounded-full border border-stone-300 border-dashed z-10 flex items-center justify-center opacity-40"
             >
-              <div className="w-16 h-16 sm:w-24 sm:h-24 rounded-full border border-stone-200 flex items-center justify-center">
+              <div className="w-14 h-14 sm:w-20 sm:h-20 rounded-full border border-stone-200 flex items-center justify-center">
                 <div className="w-2 h-2 rounded-full bg-red-500" />
               </div>
             </motion.div>

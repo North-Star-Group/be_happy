@@ -16,7 +16,7 @@ const AnnouncementBanner = () => {
           className="relative z-50 bg-stone-900 text-stone-50 overflow-hidden"
         >
           <div className="max-w-[1400px] mx-auto px-6 py-2 flex items-center justify-between md:justify-center relative">
-            
+
             {/* Left Decorative Element (Hidden on mobile) */}
             <div className="hidden md:flex items-center gap-2 absolute left-6 opacity-50">
               <span className="w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse" />
@@ -28,7 +28,7 @@ const AnnouncementBanner = () => {
               <span className="hidden md:inline text-stone-400">
                 End of Season Sale
               </span>
-              
+
               <div className="flex items-center gap-2">
                 <span className="uppercase">Get up to</span>
                 <span className="bg-red-600 text-white px-2 py-0.5 text-[10px] font-bold rounded-sm flex items-center gap-1">
@@ -36,14 +36,17 @@ const AnnouncementBanner = () => {
                 </span>
               </div>
 
-              <button className="group flex items-center gap-1 hover:text-red-400 transition-colors border-b border-stone-600 hover:border-red-400 pb-0.5">
+              <button
+                onClick={() => window.open('https://www.facebook.com/p/Be-Happy-100068963659334/', '_blank')}
+                className="group flex items-center gap-1 hover:text-red-400 transition-colors border-b border-stone-600 hover:border-red-400 pb-0.5"
+              >
                 <span>Shop the sale</span>
                 <ArrowRight size={12} className="group-hover:translate-x-1 transition-transform" />
               </button>
             </div>
 
             {/* Close Button */}
-            <button 
+            <button
               onClick={() => setIsVisible(false)}
               className="absolute right-4 md:right-6 p-1 hover:bg-stone-800 rounded-full transition-colors text-stone-400 hover:text-white"
               aria-label="Close announcement"
