@@ -144,11 +144,11 @@ const AboutStrip = () => {
       {/* Texture overlay to make it look like fabric (optional) */}
       <div className="absolute inset-0 hidden opacity-10 pointer-events-none md:block bg-[url('https://www.transparenttextures.com/patterns/fabric-of-squares.png')]"></div>
 
-      <div className="flex gap-3 overflow-x-auto px-4 md:hidden [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+      <div className="grid grid-cols-2 gap-2 px-4 md:hidden">
         {content.map((item, index) => (
-          <div key={index} className="flex shrink-0 items-center gap-3 rounded-full border border-white/15 bg-white/10 px-4 py-2 text-white/90">
+          <div key={index} className="flex min-w-0 items-center justify-center gap-2 rounded-2xl border border-white/15 bg-white/10 px-3 py-3 text-center text-white/90 backdrop-blur-sm">
             <span className="text-red-200">{item.icon}</span>
-            <span className="font-sans text-xs font-bold tracking-[0.2em] uppercase">
+            <span className="font-sans text-[11px] font-bold tracking-[0.16em] uppercase leading-tight">
               {item.text}
             </span>
           </div>

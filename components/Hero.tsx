@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, useReducedMotion } from 'framer-motion';
 import { ArrowRight, Sparkles } from 'lucide-react';
 import Image from 'next/image';
 
@@ -38,31 +38,92 @@ const AnimatedButton = ({ children, primary }: { children: React.ReactNode, prim
   </motion.button>
 );
 
-const ImageSlideshow = ({ images, intervalTime = 4000, className = "" }: { images: string[], intervalTime?: number, className?: string }) => {
-  const [index, setIndex] = useState(0);
+const useLightweightSlideshow = () => {
+  const prefersReducedMotion = useReducedMotion();
+  const [useLightweightMode, setUseLightweightMode] = useState(() => {
+    if (typeof window === 'undefined') {
+      return true;
+    }
+
+    return window.matchMedia('(max-width: 767px), (pointer: coarse), (hover: none)').matches;
+  });
 
   useEffect(() => {
-    const timer = setInterval(() => {
+    if (prefersReducedMotion || typeof window === 'undefined') {
+      return;
+    }
+
+    const mediaQuery = window.matchMedia('(max-width: 767px), (pointer: coarse), (hover: none)');
+    const updateMode = (event: MediaQueryListEvent) => setUseLightweightMode(event.matches);
+    mediaQuery.addEventListener('change', updateMode);
+
+    return () => mediaQuery.removeEventListener('change', updateMode);
+  }, [prefersReducedMotion]);
+
+  return prefersReducedMotion || useLightweightMode;
+};
+
+const ImageSlideshow = ({
+  images,
+  intervalTime = 4000,
+  className = "",
+  alt = "Fashion collection showcase",
+}: {
+  images: string[],
+  intervalTime?: number,
+  className?: string,
+  alt?: string,
+}) => {
+  const [index, setIndex] = useState(0);
+  const useLightweightMode = useLightweightSlideshow();
+
+  const shouldAnimate = images.length > 1 && !useLightweightMode;
+  const activeIndex = shouldAnimate ? index % images.length : 0;
+
+  useEffect(() => {
+    if (!shouldAnimate) {
+      return;
+    }
+
+    const timer = window.setInterval(() => {
       setIndex((prev) => (prev + 1) % images.length);
     }, intervalTime);
-    return () => clearInterval(timer);
-  }, [images.length, intervalTime]);
+
+    return () => window.clearInterval(timer);
+  }, [images.length, intervalTime, shouldAnimate]);
+
+  if (images.length === 0) {
+    return null;
+  }
 
   return (
     <div className={`relative overflow-hidden ${className}`}>
-      <AnimatePresence initial={false} mode="wait">
-        <motion.img
-          key={index}
-          src={images[index]}
-          alt="Fashion collection showcase"
-          initial={{ opacity: 0, scale: 1.05 }}
-          animate={{ opacity: 1, scale: 1, transition: { duration: 0.8, ease: "easeOut" } }}
-          exit={{ opacity: 0, scale: 1.05, transition: { duration: 0.8, ease: "easeIn" } }}
-          className="absolute inset-0 w-full h-full object-cover"
-          loading="lazy"
-          decoding="async"
-        />
-      </AnimatePresence>
+      {images.map((image, imageIndex) => {
+        const isActive = imageIndex === activeIndex;
+
+        return (
+          <motion.img
+            key={`${image}-${imageIndex}`}
+            src={image}
+            alt={alt}
+            initial={false}
+            animate={{
+              opacity: isActive ? 1 : 0,
+              scale: shouldAnimate && isActive ? 1 : 1.02,
+            }}
+            transition={{
+              opacity: { duration: shouldAnimate ? 0.65 : 0, ease: "easeInOut" },
+              scale: { duration: shouldAnimate ? 1.6 : 0, ease: "easeOut" },
+            }}
+            className="absolute inset-0 h-full w-full object-cover transform-gpu"
+            loading="eager"
+            decoding="async"
+            draggable={false}
+            aria-hidden={!isActive}
+            style={{ willChange: shouldAnimate ? 'opacity, transform' : 'auto' }}
+          />
+        );
+      })}
     </div>
   );
 };
@@ -178,6 +239,7 @@ const DesignerHeroCollection = () => {
                 images={mainCollectionImages}
                 intervalTime={5000}
                 className="w-full h-full bg-stone-200"
+                alt="Be Happy spring collection"
               />
               <div className="absolute inset-x-0 bottom-0 p-6 bg-gradient-to-t from-stone-900/80 to-transparent">
                 <p className="text-white font-medium tracking-wide text-base">Spring Essentials</p>
@@ -196,6 +258,7 @@ const DesignerHeroCollection = () => {
                 images={floatingImages}
                 intervalTime={6000}
                 className="w-full h-full bg-stone-300"
+                alt="Be Happy featured look"
               />
             </motion.div>
 
@@ -210,6 +273,7 @@ const DesignerHeroCollection = () => {
                 images={secondaryImages}
                 intervalTime={7000}
                 className="w-full h-full bg-stone-200 grayscale hover:grayscale-0 transition-all duration-700"
+                alt="Be Happy premium fabric collection"
               />
             </motion.div>
 
